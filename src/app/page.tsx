@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import Slide01Introduction from '../components/slides/Slide01Introduction'
 import Slide02ExamSystem from '../components/slides/Slide02ExamSystem'
+import Slide03FormatChange from '../components/slides/Slide03FormatChange'
+import Slide04Difficulty from '../components/slides/Slide04Difficulty'
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(1)
@@ -23,6 +25,8 @@ export default function Home() {
   const slides = [
     <Slide01Introduction key="slide1" onNext={nextSlide} />,
     <Slide02ExamSystem key="slide2" onNext={nextSlide} onPrev={prevSlide} />,
+    <Slide03FormatChange key="slide3" onNext={nextSlide} onPrev={prevSlide} />,
+    <Slide04Difficulty key="slide4" onNext={nextSlide} onPrev={prevSlide} />,
   ]
 
   return (

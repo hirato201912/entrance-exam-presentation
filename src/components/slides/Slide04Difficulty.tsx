@@ -3,12 +3,12 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { 
-  FileQuestion, 
-  Calendar, 
-  Users,
+  Brain, 
+  Zap, 
   AlertTriangle,
+  Target,
   ChevronRight,
-  BookOpen
+  Lightbulb
 } from 'lucide-react'
 
 interface SlideProps {
@@ -16,29 +16,39 @@ interface SlideProps {
   onPrev?: () => void
 }
 
-export default function Slide02ExamSystem({ onNext }: SlideProps) {
+export default function Slide04Difficulty({ onNext }: SlideProps) {
   const [currentStep, setCurrentStep] = useState(0)
 
   const steps = [
     {
       id: 1,
-      text: "愛知県の入試は",
-      highlight: "2023年に大きく変わった",
-      suffix: "",
-      icon: Calendar,
-      color: "from-emerald-400 to-teal-400",
-      bgColor: "bg-emerald-50",
+      text: "マークシート方式だからこそ",
+      highlight: "「考える力」",
+      suffix: "が求められる",
+      icon: Brain,
+      color: "from-orange-400 to-red-400",
+      bgColor: "bg-orange-50",
       delay: 0
     },
     {
       id: 2,
-      text: "でも、まだ多くの生徒が",
-      highlight: "その変化を知らない",
-      suffix: "",
-      icon: Users,
-      color: "from-orange-400 to-red-400",
-      bgColor: "bg-orange-50",
+      text: "暗記だけでは通用しない",
+      highlight: "「応用力」",
+      suffix: "が必要",
+      icon: Zap,
+      color: "from-red-400 to-pink-400",
+      bgColor: "bg-red-50",
       delay: 0.2
+    },
+    {
+      id: 3,
+      text: "ひっかけ問題や似たような選択肢で",
+      highlight: "混乱させる問題が増加",
+      suffix: "",
+      icon: Target,
+      color: "from-pink-400 to-rose-400",
+      bgColor: "bg-pink-50",
+      delay: 0.4
     }
   ]
 
@@ -62,29 +72,29 @@ export default function Slide02ExamSystem({ onNext }: SlideProps) {
 
   return (
     <div 
-      className="min-h-screen bg-gradient-to-br from-slate-900 via-emerald-900 to-teal-900 flex items-center justify-center p-4"
+      className="min-h-screen bg-gradient-to-br from-slate-900 via-orange-900 to-red-900 flex items-center justify-center p-4"
       onTouchEnd={handleTouchEnd}
     >
       {/* 背景パーティクル効果 */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(8)].map((_, i) => (
+        {[...Array(12)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-emerald-300/30 rounded-full"
+            className="absolute w-1 h-1 bg-orange-300/40 rounded-full"
             initial={{ 
-              x: i * 200, 
-              y: i * 120,
+              x: i * 120, 
+              y: i * 80,
               opacity: 0
             }}
             animate={{
               y: 1100,
               opacity: [0, 0.8, 0],
-              scale: [1, 1.5, 1]
+              scale: [1, 2, 1]
             }}
             transition={{
-              duration: 12 + Math.random() * 6,
+              duration: 8 + Math.random() * 4,
               repeat: Infinity,
-              delay: i * 1.5,
+              delay: i * 0.8,
               ease: "linear"
             }}
           />
@@ -100,7 +110,7 @@ export default function Slide02ExamSystem({ onNext }: SlideProps) {
       >
         {/* ヘッダー */}
         <motion.div 
-          className="relative bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 text-white p-4 md:p-6"
+          className="relative bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 text-white p-4 md:p-6"
           initial={{ y: -30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -111,10 +121,10 @@ export default function Slide02ExamSystem({ onNext }: SlideProps) {
           <div className="absolute top-3 left-3">
             <motion.div
               animate={{ rotate: 360 }}
-              transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               className="w-8 h-8 border-2 border-white/30 rounded-full flex items-center justify-center"
             >
-              <FileQuestion className="w-4 h-4 text-white/70" />
+              <Lightbulb className="w-4 h-4 text-white/70" />
             </motion.div>
           </div>
 
@@ -127,7 +137,7 @@ export default function Slide02ExamSystem({ onNext }: SlideProps) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                入試制度、把握してる？
+                実はマークシートの方が難しい
               </motion.h1>
               
               <motion.div 
@@ -137,7 +147,7 @@ export default function Slide02ExamSystem({ onNext }: SlideProps) {
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
                 <div className="w-1.5 h-1.5 bg-white/60 rounded-full animate-pulse" />
-                <span className="text-white/80 text-sm md:text-base font-medium">知らないと危険な変化</span>
+                <span className="text-white/80 text-sm md:text-base font-medium">○をつけるだけなのに、なぜ？</span>
                 <div className="w-1.5 h-1.5 bg-white/60 rounded-full animate-pulse" />
               </motion.div>
             </div>
@@ -162,19 +172,19 @@ export default function Slide02ExamSystem({ onNext }: SlideProps) {
                 }}
                 transition={{ duration: 0.7, delay: 0.3 }}
               >
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent leading-tight mb-4">
-                  制度が変わった！
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent leading-tight mb-4">
+                  マークシート＝簡単
                 </h2>
                 <motion.h2 
-                  className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-teal-500 to-cyan-600 bg-clip-text text-transparent mb-4"
+                  className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-red-500 to-pink-600 bg-clip-text text-transparent mb-4"
                   initial={{ opacity: 0, x: 50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.7, delay: 0.5 }}
                 >
-                  知ってる？
+                  は間違い！
                 </motion.h2>
                 
-                {/* 質問アイコン */}
+                {/* 警告アイコン */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -182,17 +192,17 @@ export default function Slide02ExamSystem({ onNext }: SlideProps) {
                 >
                   <motion.div
                     animate={{ 
-                      scale: [1, 1.1, 1],
-                      rotate: [0, 5, -5, 0]
+                      scale: [1, 1.15, 1],
+                      rotate: [0, 10, -10, 0]
                     }}
                     transition={{
-                      duration: 3,
+                      duration: 2.5,
                       repeat: Infinity,
                       ease: "easeInOut"
                     }}
-                    className="bg-emerald-100 border-2 border-emerald-300 rounded-full p-2 inline-flex"
+                    className="bg-orange-100 border-2 border-orange-300 rounded-full p-2 inline-flex"
                   >
-                    <FileQuestion className="w-5 h-5 text-emerald-600" />
+                    <AlertTriangle className="w-5 h-5 text-orange-600" />
                   </motion.div>
                 </motion.div>
               </motion.div>
@@ -295,7 +305,7 @@ export default function Slide02ExamSystem({ onNext }: SlideProps) {
             </AnimatePresence>
           </div>
 
-          {/* 特別な警告セクション（全ステップ表示後） */}
+          {/* 特別な結論セクション（全ステップ表示後） */}
           <AnimatePresence>
             {currentStep === steps.length && (
               <motion.div
@@ -306,25 +316,25 @@ export default function Slide02ExamSystem({ onNext }: SlideProps) {
                 className="mt-6 md:mt-8 max-w-4xl mx-auto"
               >
                 <motion.div 
-                  className="relative bg-gradient-to-r from-red-50 via-orange-50 to-yellow-50 border-2 border-orange-200 rounded-2xl p-4 md:p-6 shadow-xl"
+                  className="relative bg-gradient-to-r from-red-50 via-orange-50 to-yellow-50 border-2 border-red-200 rounded-2xl p-4 md:p-6 shadow-xl"
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 >
-                  {/* 警告アイコン */}
+                  {/* 重要アイコン */}
                   <motion.div 
                     className="absolute -top-4 left-1/2 transform -translate-x-1/2"
                     animate={{ 
                       y: [0, -3, 0],
-                      rotate: [0, 2, -2, 0]
+                      scale: [1, 1.1, 1]
                     }}
                     transition={{
-                      duration: 3,
+                      duration: 2,
                       repeat: Infinity,
                       ease: "easeInOut"
                     }}
                   >
-                    <div className="bg-orange-400 rounded-full p-2 shadow-lg border-2 border-white">
-                      <AlertTriangle className="w-5 h-5 text-white" />
+                    <div className="bg-red-400 rounded-full p-2 shadow-lg border-2 border-white">
+                      <Brain className="w-5 h-5 text-white" />
                     </div>
                   </motion.div>
 
@@ -335,9 +345,9 @@ export default function Slide02ExamSystem({ onNext }: SlideProps) {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.5 }}
                     >
-                      知らないと大変！
+                      つまり、
                       <span className="bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent mx-2">
-                        せっかくの努力が...
+                        単純暗記だけでは太刀打ちできない
                       </span>
                     </motion.h3>
                     
@@ -347,8 +357,8 @@ export default function Slide02ExamSystem({ onNext }: SlideProps) {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.7 }}
                     >
-                      制度を知らないまま勉強すると、努力が<strong className="text-red-600">水の泡</strong>になり、<br className="hidden md:block" />
-                      本番で<strong className="text-orange-600">「見たことない問題...」</strong>に困ってしまいます
+                      学んだことを<strong className="text-red-600">使いこなす力</strong>と<br className="hidden md:block" />
+                      <strong className="text-orange-600">深く考える力</strong>が必要な時代になりました
                     </motion.p>
                   </div>
                 </motion.div>
@@ -369,7 +379,7 @@ export default function Slide02ExamSystem({ onNext }: SlideProps) {
             {currentStep < steps.length && (
               <motion.button
                 onClick={nextStep}
-                className="group bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 hover:from-emerald-600 hover:via-teal-600 hover:to-cyan-600 text-white px-6 py-3 rounded-xl font-bold text-base shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center space-x-2"
+                className="group bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white px-6 py-3 rounded-xl font-bold text-base shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center space-x-2"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 initial={{ opacity: 0, y: 20 }}
