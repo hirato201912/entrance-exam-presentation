@@ -163,7 +163,7 @@ export default function Slide01Introduction({ onNext }: SlideProps) {
                   onClick={handleNextSlide}
                 >
                   {/* <span>次へ</span> */}
-                  <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  {/* <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" /> */}
                 </motion.button>
               )}
             </AnimatePresence>
