@@ -149,24 +149,24 @@ export default function Slide01Introduction({ onNext }: SlideProps) {
               </motion.div>
             </div>
 
-            {/* 次のスライドボタン（全メッセージ表示後に表示） */}
-            <AnimatePresence>
-              {currentStep === steps.length && (
-                <motion.button
-                  initial={{ opacity: 0, scale: 0.8, x: 20 }}
-                  animate={{ opacity: 1, scale: 1, x: 0 }}
-                  exit={{ opacity: 0, scale: 0.8, x: 20 }}
-                  transition={{ duration: 0.5 }}
-                  className="group bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white px-4 py-2 rounded-lg font-bold text-base shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2 border border-white/30"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={handleNextSlide}
-                >
-                  {/* <span>次へ</span> */}
-                  {/* <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" /> */}
-                </motion.button>
-              )}
-            </AnimatePresence>
+          {/* 次のスライドボタン（全メッセージ表示後に表示） */}
+{/* 
+<AnimatePresence>
+  {currentStep === steps.length && (
+    <motion.button
+      initial={{ opacity: 0, scale: 0.8, x: 20 }}
+      animate={{ opacity: 1, scale: 1, x: 0 }}
+      exit={{ opacity: 0, scale: 0.8, x: 20 }}
+      transition={{ duration: 0.5 }}
+      className="group bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white px-4 py-2 rounded-lg font-bold text-base shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2 border border-white/30"
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.98 }}
+      onClick={handleNextSlide}
+    >
+    </motion.button>
+  )}
+</AnimatePresence>
+*/}
           </div>
         </motion.div>
 
