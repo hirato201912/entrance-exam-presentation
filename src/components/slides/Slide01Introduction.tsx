@@ -162,7 +162,7 @@ export default function Slide01Introduction({ onNext }: SlideProps) {
                   whileTap={{ scale: 0.98 }}
                   onClick={handleNextSlide}
                 >
-                  <span>次へ</span>
+                  {/* <span>次へ</span> */}
                   <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </motion.button>
               )}
